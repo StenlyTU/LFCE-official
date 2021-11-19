@@ -18,4 +18,4 @@
 ## Install Linux Distribution
 
 
-[Back to top of the page: ⬆️](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/EssentialCommands.md#essential-commands)
+[Back to top of the page: ⬆️](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_EssentialCommands.md#essential-commands)
