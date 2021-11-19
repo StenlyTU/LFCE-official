@@ -13,7 +13,7 @@
   <img src="https://img.shields.io/github/forks/StenlyTU/LFCE-official?style=social">
 </p>
 
-These are notes taken during preparation for [LFCS exam](https://training.linuxfoundation.org/certification/linux-foundation-certified-engineer-lfce/)
+These are notes taken during preparation for [LFCE exam](https://training.linuxfoundation.org/certification/linux-foundation-certified-engineer-lfce/)
 
 
 ## Domains & Competencies
@@ -36,6 +36,6 @@ These are notes taken during preparation for [LFCS exam](https://training.linuxf
 
 * Interactive ***K8s*** training with exercises - https://github.com/StenlyTU/K8s-training-official
 
-* Linux Foundation ***LFCS*** knowledge base - https://github.com/StenlyTU/LFCE-official
+* Linux Foundation ***LFCS*** knowledge base - https://github.com/StenlyTU/LFCS-official
 
 :checkered_flag: If you liked the repo please star it :star:
