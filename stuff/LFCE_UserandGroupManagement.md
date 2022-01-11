@@ -4,7 +4,7 @@
 
 2. [Configure advanced PAM](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_UserandGroupManagement.md#configure-advanced-PAM)
 
-3. [Check everything from LFCS essentials KB](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/UserandGroupManagement.md)
+- [Check everything from LFCS essentials KB](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/UserandGroupManagement.md)
 
 
 ## Connect to an external authentication source

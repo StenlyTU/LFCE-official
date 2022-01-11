@@ -15,6 +15,7 @@
 
 These are notes taken during preparation for [LFCE exam](https://training.linuxfoundation.org/certification/linux-foundation-certified-engineer-lfce/)
 
+Passing score: **57%**
 
 ## Domains & Competencies
 
