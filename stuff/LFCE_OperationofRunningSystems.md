@@ -8,12 +8,12 @@
 6. [Maintain systems via configuration management tools](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#maintain-systems-via-configuration-management-tools)
 7. [Maintain the integrity and availability of hardware](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#maintain-the-integrity-and-availability-of-hardware)
 8. [Develop and test disaster recovery plans](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#Develop-and-test-disaster-recovery-plans)
-9. [Support incident management for outages/trouble](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#support-incident-management-for-outages\/trouble)
+9. [Support incident management for outages/trouble](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#support-incident-management-for-outages-trouble)
 10. [Produce and deliver reports on system use (processor, memory, disk, and network), outages, and user requests](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#produce-and-deliver-reports-on-system-use-(processor,-memory,-disk,-and-network),-outages,-and-user-requests)
 11. [Monitor security and conduct audits](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#monitor-security-and-conduct-audits)
 12. [Manipulate Linux system during the recovery process](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#Manipulate-Linux-system-during-the-recovery-process)
 13. [Use udev for device detection and management](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#Use-udev-for-device-detection-and-management)
-14. [Configure and modify SELinux/AppArmor policies](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#configure-and-modify-\S\ELinux\/\App\Armor-policies)
+14. [Configure and modify SELinux/AppArmor policies](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#configure-and-modify-\SELinux/AppArmor-policies)
 
 
 ## Monitor, tune and troubleshoot system performance
@@ -44,7 +44,7 @@
 
 ## Develop and test disaster recovery plans
 
-## Support incident management for outages/trouble
+## Support incident management for outages trouble
 
 ## Produce and deliver reports on system use (processor, memory, disk, and network), outages, and user requests
 
