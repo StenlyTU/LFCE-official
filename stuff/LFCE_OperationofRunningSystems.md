@@ -13,7 +13,7 @@
 11. [Monitor security and conduct audits](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#monitor-security-and-conduct-audits)
 12. [Manipulate Linux system during the recovery process](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#Manipulate-Linux-system-during-the-recovery-process)
 13. [Use udev for device detection and management](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#Use-udev-for-device-detection-and-management)
-14. [Configure and modify SELinux/AppArmor policies](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#configure-and-modify-\SELinux/AppArmor-policies)
+14. [Configure and modify SELinux/AppArmor policies](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#configure-and-modify-\SELinux-or-AppArmor-policies)
 
 
 ## Monitor, tune and troubleshoot system performance
@@ -94,7 +94,7 @@ or script when a device node is created or deleted, among others.
 
     custom-made rules -> **/etc/udev/rules.d/**
 
-## Configure and modify SELinux/AppArmor policies
+## Configure and modify SELinux or AppArmor policies
 
 - Check the info for SELinux from [LFCS repo:](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/OperationofRunningSystems.md#list-and-identify-selinuxapparmor-file-and-process-contexts)
 
