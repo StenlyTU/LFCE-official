@@ -41,6 +41,9 @@
     ```bash
     $ sudo chmod 600 /etc/ssh/deniedusers
     ```
+
+    Task: configure PAM SSH so that if user tries to login 5 time, it gets refused!
+
 - **How to Configuring Advanced PAM in Linux:**
     - To write more complex PAM rules, you can use valid control-flags in the following form:
 
