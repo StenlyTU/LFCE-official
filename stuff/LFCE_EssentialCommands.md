@@ -35,6 +35,7 @@
     git show
     git diff master latest
     ```
+    Git example ssh..
 
 ## Manipulate file content programmatically
 
