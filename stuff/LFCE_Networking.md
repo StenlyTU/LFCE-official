@@ -53,6 +53,8 @@ nmon, vnstat
     $ ssh -f -N -D 1080 admin@server1.example.com
     ```
 
+- For more info see: `man ssh_config` and `man sshd_config`
+
 
 ## Configure a system to perform Network Address Translation
 
