@@ -188,7 +188,11 @@ improving response times and reducing bandwidth usage.
 
 ## Implement and configure a PXE Boot server
 
-- TBD next
+- PXE (Preboot eXecution Environment) Server allows unattended or automated OS installation over the Network.The main benefit of pxe is that we don’t need any bootable drive to boot OS(Operating system) and we do not need to to burn any ISO file into DVD or usb device.
+
+- Article how to Configure PXE Server: https://www.linuxtechi.com/configure-pxe-installation-server-centos-7/
+
+- In general don't belive there will be questions for PXE since you need to configure a loot of stuff especially in container setup like on the exam.
 
 ## Implement and configure an authoritative DNS server
 

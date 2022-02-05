@@ -58,11 +58,45 @@ nmon, vnstat
 
 ## Configure a system to perform Network Address Translation
 
+- Network Address Translation (NAT) allows for multiple network hosts to share the same external IP address. There are two types of outbound NAT or source NAT:
+
+    - MASQUERADE: Works with a dynamic source IP address. It is useful for servers with dynamic IP addresses.
+    - SNAT: Works with a static source IP address. It is less complex than MASQUERADE.
+    - There is also a form of inbound or destination NAT (DNAT). DNAT allows for services to be behind a bastion host and to be easily load-balanced to different hosts.
+
+    To enable any of these types of NAT, the ip_forward kernel option must be set to 1.
+    ```bash
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+    ```
+    Example of masquerade rule:
+    ```bash
+    iptables -t nat -A POSTROUTING -o eth1 ! -d 192.168.12.0/24 -j MASQUERADE
+    ```
+
 ## Dynamically route IP traffic
+
+- Quaga
 
 ## Implement advanced packet filtering
 
-Use firewalld: [Firewall info](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/Networking.md#implement-packet-filtering)
+- TCP Wrappers:
+    - The TCP Wrappers system is a host-based network firewall and ACL.
+    - The configuration for tcpwrappers is handled by two files, ***/etc/hosts.allow*** and ***/etc/hosts.deny***. Both files have the same syntax:
+        ```bash
+        <DAEMON>:<CLIENT>
+        #hosts.allow
+        vsftpd:ALL
+        ALL:LOCAL
+        ALL:10
+        ALL:.example.com EXCEPT untrusted.example.com
+
+        #hosts.deny
+        ALL:ALL
+        ```
+- Netfilter
+    - netfilter is a packet-filtering framework built into the Linux kernel.
+
+    Use firewalld: [Firewall info](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/Networking.md#implement-packet-filtering)
 
 
 [Back to top of the page: ⬆️](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_Networking.md)

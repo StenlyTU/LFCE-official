@@ -184,6 +184,9 @@
                 path = /home/sambapublic
                 writable = yes
                 public = yes
+                #read only = no #Other options
+                #guest ok = yes
+                #valid users = vagrant
 
         testparm # check the smb.conf file.
         # Test locally

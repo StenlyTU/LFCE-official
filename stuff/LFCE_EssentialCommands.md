@@ -7,8 +7,6 @@
 3. [Run commands on many systems simultaneously](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_EssentialCommands.md#run-commands-on-many-systems-simultaneously)
 4. [Install Linux Distribution](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_EssentialCommands.md#install-linux-distribution)
 
-- [Check everything from LFCS essentials](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/EssentialCommands.md)
-
 
 ## Use version control tools
 
@@ -81,5 +79,6 @@ ssh in parallel on a number of hosts.
 
 - If you are studying for **LFCE** you need to know this already!
 
+[Check everything from LFCS essentials](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/EssentialCommands.md)
 
 [Back to top of the page: ⬆️](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_EssentialCommands.md#essential-commands)
