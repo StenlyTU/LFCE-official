@@ -16,7 +16,16 @@
 
 ## Create and maintain software packages
 
-- TBD later
+- To build an rpm file based on the spec file that we just created, we need to use rpmbuild command
+    ```bash
+    yum install rpm-build
+    ```
+    - `wget http://downloads.xiph.org/releases/icecast/icecast-2.3.3.tar.gz` -> Downlload source tar file for the package that you want to build.
+    - TBD
+
+- To downgarde the rpm package, use the below command syntax:
+   - `rpm -Uvh --oldpackage [downloaded_lower_version_package]`
+   - `yumdownloader  systemd-libs-219-78.el7_9.3.x86_64` -> To download the old package.
 
 ## Create, configure and maintain containers
 
@@ -65,5 +74,7 @@
     - https://github.com/StenlyTU/LFCS-official/blob/main/stuff/ServiceConfiguration.md#manage-and-configure-virtual-machines
 
 ## Deploy, configure, and maintain high availability/clustering/replication
+
+- TBD
 
 [Back to top of the page: ⬆️](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_DesignandDeployment.md#Define-a-capacity-planning-strategy)
