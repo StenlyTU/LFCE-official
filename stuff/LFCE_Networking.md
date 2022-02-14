@@ -75,7 +75,24 @@ nmon, vnstat
 
 ## Dynamically route IP traffic
 
-- Quaga
+- `yum install quagga`
+- `cp /usr/share/doc/quagga-0.99.22.4/zebra.conf.sample  /etc/quagga/zebra.conf` - Copy sample config file.
+- `cp /usr/share/doc/quagga-0.99.22.4/ospfd.conf.sample /etc/quagga/ospfd.conf`- Copy the ospfd config file.
+- `semanage boolean -m zebra_write_config -1` -> Configure the SELinux to be able to use "write" and edit files.
+- `echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf` & `sysctl -p` -> Enable IPv4 forwarding.
+- `systemctl start zebra ospfd`
+- ```bash
+  # vtysh
+  configure terminal
+  log file /var/log/quagga/quagga.log
+  router ospf
+  router-id  10.10.10.1
+  network 10.10.10.0/30 area 0
+  do write
+  # Do the same on the another side.
+  ```
+- `firewall-cmd --add-protocol=ospf --permanent` - Add the protocol to the firewalld.
+- From the Quagga console type: `show ip ospf neighbor` to check OSPF neighbors.
 
 ## Implement advanced packet filtering
 
