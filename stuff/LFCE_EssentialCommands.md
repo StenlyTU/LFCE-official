@@ -1,4 +1,4 @@
-# LFCE Essential Commands
+# LFCE Essential Commands - 5%
 
 <img src="https://www.svgrepo.com/show/107972/lazy.svg" width="250" align="right"/></a>
 
@@ -33,7 +33,9 @@
     git show
     git diff master latest
     ```
-    Git example ssh..
+
+    `git clone ssh://osboxes@192.168.0.108/tmp/test ./opala/` -> Clone repo from remote machine using ssh.
+        - Had to set `git config receive.denyCurrentBranch ignore` from the repo side and change group and user owner != root.
 
 ## Manipulate file content programmatically
 
@@ -63,7 +65,7 @@ ssh in parallel on a number of hosts.
         ```
     - Start using it:
         ```bash
-        pssh -h pssh-hosts -i -o test2 -l root -A df -h
+        pssh -h pssh-hosts -i -o dir_name -l root -A df -h
         ```
         -h: used to specify host file
 
