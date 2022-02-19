@@ -1,4 +1,4 @@
-# LFCE Operation of Running Systems
+# LFCE Operation of Running Systems - 18%
 
 1. [Monitor, tune and troubleshoot system performance](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#monitor,-tune-and-troubleshoot-system-performance)
 2. [Update operating systems to provide required functionality and security](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#update-operating-systems-to-provide-required-functionality-and-security)
@@ -48,9 +48,33 @@
 
 ## Produce and deliver reports on system use (processor, memory, disk, and network), outages, and user requests
 
-- mpstat, vmstat, sar
+- For CPU: `mpstat` and `sar`
+- For Memory: `vmstat`
+    ```bash
+    # vmstat
+        procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+    r  b      swpd   free   buff  cache    si   so   bi    bo    in   cs  us sy id wa st
+    2  0       0  3303812 87912   13199    0    0    3     6     62   84  0  0 100  0  0
+
+    r -> The number of processes in a running state.
+    b -> The number of processes in uninterruptible sleep state.
+    The "si" and "so" fields indicate that the systems physical memory is full and the swap partition/file is being used.
+    The "bi" and "bo" fields indicate the number of blocks being read from disk and block being written to disk.
+    in -> The number of interrupts per second, including the clock.
+    cs -> The number of context switches per second.
+    us -> Time spent running non-kernel code.
+    sy -> Time spent running kernel code.
+    id -> Time spent idle.
+    wa -> Time spent waiting for I/O.
+    st -> Time stolen from a virtual machine.
+    ```
+- For Disk: `df` and `du`
+- For Network: `nmon` and `vnstat`
+    - More info in Networking Section.
 
 ## Monitor security and conduct audits
+
+- Check [LFCS repo:](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/OperationofRunningSystems.md#locate-and-analyze-system-log-files)
 
 - TBD ausearch?
 
@@ -104,4 +128,4 @@ or script when a device node is created or deleted, among others.
     - Change SSH port to 8888 and configure the SELinux ssh ports: `semanage port`
     - Choosing a DocumentRoot outside /var/www/html for a virtual host on Apache: `semanage fcontext`
 
-[Back to top of the page: ⬆️](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#monitor,-tune-and-troubleshoot-system-performance)
+[Back to top of the page: ⬆️](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_OperationofRunningSystems.md#lfce-operation-of-running-systems---18)

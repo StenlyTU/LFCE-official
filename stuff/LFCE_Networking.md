@@ -15,7 +15,13 @@
 
 ## Monitor, tune and troubleshoot network performance
 
-nmon, vnstat
+- nmon is is a systems administrator, tuner, benchmark tool.  It can display the CPU, memory,  network,  disks (mini  graphs  or  numbers), file systems, NFS, top processes, resources.
+    - `yum install nmon`
+
+- vnstat
+    - `yum install vnstat`
+    - Change the default interface in `/etc/vnstat.conf`
+    - `vnstat --create -i ens33` -> Create DB to store the data for ens33 interface.
 
 ## Configure network traffic tunneling
 

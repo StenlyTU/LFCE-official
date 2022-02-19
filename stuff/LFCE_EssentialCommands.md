@@ -35,7 +35,7 @@
     ```
 
     `git clone ssh://osboxes@192.168.0.108/tmp/test ./opala/` -> Clone repo from remote machine using ssh.
-        - Had to set `git config receive.denyCurrentBranch ignore` from the repo side and change group and user owner != root.
+    - Had to set `git config receive.denyCurrentBranch ignore` from the repo side and change group and user owner != root.
 
 ## Manipulate file content programmatically
 
@@ -83,4 +83,4 @@ ssh in parallel on a number of hosts.
 
 [Check everything from LFCS essentials](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/EssentialCommands.md)
 
-[Back to top of the page: ⬆️](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_EssentialCommands.md#essential-commands)
+[Back to top of the page: ⬆️](https://github.com/StenlyTU/LFCE-official/blob/main/stuff/LFCE_EssentialCommands.md#lfce-essential-commands---5)
