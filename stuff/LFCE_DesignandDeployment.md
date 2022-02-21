@@ -18,14 +18,17 @@
 
 - To build an rpm file based on the spec file that we just created, we need to use rpmbuild command
     ```bash
-    yum install rpm-build
+    yum install rpm-build rpmdevtools
+    rpmdev-setuptree
     ```
-    - `wget http://downloads.xiph.org/releases/icecast/icecast-2.3.3.tar.gz` -> Downlload source tar file for the package that you want to build.
-    - TBD
+    - `wget http://downloads.xiph.org/releases/icecast/icecast-2.3.3.tar.gz` -> Download source tar file for the package that you want to build and move it to **..rpmbuild/SOURCES**
+    - Go to **..rpmbuild/SPECS** and execute rpmdev-newspec spec_name to create simple spec file.
 
 - To downgarde the rpm package, use the below command syntax:
-   - `rpm -Uvh --oldpackage [downloaded_lower_version_package]`
-   - `yumdownloader  systemd-libs-219-78.el7_9.3.x86_64` -> To download the old package.
+   - `yum --showduplicates list firefox` -> Show old versions.
+   - `yumdownloader systemd-libs-219-78.el7_9.3.x86_64` -> To download the old package.
+   - `yum install [package-name]-[version].[architecture]` -> Structure of the package name.
+   - `rpm -Uvh --oldpackage [downloaded_lower_version_package]` -> Revert to the old version.
 
 ## Create, configure and maintain containers
 
@@ -62,6 +65,8 @@
         - -d = distibution
         - -a = arch
         - -r = release
+
+    - `echo "lxc.start.auto = 1" >> /var/lib/lxc/autostart_container/config` -> Make the container to autostart.
 
     - And finally, all created containers reside in **/var/lib/lxc/** directory. If for some reason you need to
     manually adjust container settings you must edit the config file from each container directory.

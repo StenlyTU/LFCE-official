@@ -34,6 +34,8 @@
 
     `grubby --info=ALL `- Give general information for all kernels.
 
+- Check [LFCS repo](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/OperationofRunningSystems.md#install-configure-and-troubleshoot-bootloaders)
+
 ## Script automation tools to make work faster and more accurate
 
 ## Train team members on new technology or changes to existing systems
@@ -76,7 +78,18 @@
 
 - Check [LFCS repo:](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/OperationofRunningSystems.md#locate-and-analyze-system-log-files)
 
-- TBD ausearch?
+- ausearch
+    - By default, ausearch queries the `/var/log/audit/audit.log` file.
+    - `ausearch -p 2317` -> Search by process.
+    - `ausearch -m USER_LOGIN -sv no` -> Check Failed Login Attempts in Auditd Log File.
+        - -m option to identify specific messages and -sv to define the success value
+    - `ausearch -ua tecmint` -> Find User Activity in Auditd Log File.
+    - `ausearch -ua tecmint -ts yesterday -te now -i` -> User search for specific time.
+        -  -ts for start date/time and -te for specifying end date/time as follows (note that you can use words such as now, recent, today, yesterday, this-week, week-ago, this-month, this-year
+    - `auditctl -w /etc/passwd -p rwa -k passwd_changes` -> Create Audit rule which will log any attempts to access or modify the /etc/passwd.
+        - `ausearch -k passwd_changes | less` -> And search for it
+        - `auditctl -l` -> Show the configured rules.
+        - `auditctl -W /etc/passwd -p rwa -k passwd_changes` -> To remove the rule.
 
 ## Manipulate Linux system during the recovery process
 
@@ -96,7 +109,7 @@ changes to its state to user space. One of the pros of udev is that it can use p
 - A rule comprises of a commaseparated list of one or more key-value pairs. Rules allow you to rename a device node from the default name, modify permissions and ownership of a device node, trigger execution of a program
 or script when a device node is created or deleted, among others.
 
-    ` vim /etc/udev/rules.d/80-test.rules` - Create new rule with the following content:
+    `vim /etc/udev/rules.d/80-test.rules` - Create new rule with the following content:
 
     ```bash
     SUBSYSTEM=="usb", ACTION=="add", ENV{DEVTYPE}=="usb_device", RUN+="/bin/device_added.sh"
@@ -114,11 +127,15 @@ or script when a device node is created or deleted, among others.
     
     RUN: specifies a program or script to execute as part of the event handling.
 
+    `man udev` -> For more info regarding the Udev rules syntax.
+
     `sudo udevadm control --reload` -> Tell systemd-udevd to reload the rules files (this also reloads other databases such as the kernel module index)
 
-    systemd-installed rules -> /usr/lib/udev/rules.d/
+    `/usr/lib/udev/rules.d/` -> Systemd installed rules. From here you can see EXAMPLES!
 
-    custom-made rules -> **/etc/udev/rules.d/**
+    `/etc/udev/rules.d/` -> Custom-made rules.
+
+    `/dev/disk` -> Worth cheking this folder.
 
 ## Configure and modify SELinux or AppArmor policies
 

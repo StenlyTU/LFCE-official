@@ -137,7 +137,7 @@
 
 - Have a look at the info in [LFCS repo](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/StorageManagement.md#configure-systems-to-mount-file-systems-at-or-during-boot)
 
-- NFS additional info:
+- **NFS** additional info:
 
     `/etc/exports.d/*exports` -> Is directory where you can add additional exports as seperate files.
 
@@ -154,7 +154,7 @@
 
     For more info see: `man nfs`
 
-- Samba additional info:
+- **Samba** additional info:
 
     - Samba is more complex than NFS.
 
@@ -163,18 +163,19 @@
     - For more info check:
         - `man samba`
         - `man smb.conf` -> Have good examples.
-        - `/etc/samba.smb.conf.example` -> Example configuration file.
+        - `/etc/samba/smb.conf.example` -> Example configuration file.
 
     - Example:
         ```bash
         sudo mkdir sambapublic
-        sudo semanage boolean samba_export_all_ro --on
-        sudo semanage boolean samba_export_all_rw --on
+        sudo semanage boolean samba_export_all_ro --on -m
+        sudo semanage boolean samba_export_all_rw --on -m
         sudo chown nobody:nobody /home/sambapublic/
-        sudo chmod 775 /home/sambapublic/
+        sudo chmod -R 775 /home/sambapublic/
         sudo semanage fcontext -at public_content_rw_t "/home/sambapublic(/.*)?"
+        restorecon /home/sambapublic
         ls -dZ /home/sambapublic/
-        sudo firewall-cmd --permanent --add-service samba_export_all_ro
+        sudo firewall-cmd --permanent --add-service samba
         sudo firewall-cmd --reload
         sudo vi /etc/samba/smb.conf
 
@@ -189,6 +190,7 @@
                 #valid users = vagrant
 
         testparm # check the smb.conf file.
+        systemctl start smb.service
         # Test locally
         smbclient -L //localhost # when promped for password hit enter.
         \> quit
@@ -198,7 +200,10 @@
 
         # On remote host:
         mount -t cifs -o guest,noperm //SAMBA_SERVER_IP/sambapublic /home/sambapublic_local
+        # use guest option for not asking for permissions.
         ```
+
+    - Exercise: Create filesystem create user xxxxx allow that user
 
 - If you have access to *Linked Learning* have a look at the following courses:
     - https://www.linkedin.com/learning/linux-storage-systems
