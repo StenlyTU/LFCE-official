@@ -22,12 +22,15 @@
     rpmdev-setuptree
     ```
     - `wget http://downloads.xiph.org/releases/icecast/icecast-2.3.3.tar.gz` -> Download source tar file for the package that you want to build and move it to **..rpmbuild/SOURCES**
-    - Go to **..rpmbuild/SPECS** and execute rpmdev-newspec spec_name to create simple spec file.
+    - Go to **..rpmbuild/SPECS** and execute rpmdev-newspec spec_name.spec to create simple spec file.
+    - Edit the spec file and fill all needed.
+    - `rpmbuild -v -bb ./SPECS/icecast.spec` -> Build it
 
 - To downgarde the rpm package, use the below command syntax:
    - `yum --showduplicates list firefox` -> Show old versions.
-   - `yumdownloader systemd-libs-219-78.el7_9.3.x86_64` -> To download the old package.
-   - `yum install [package-name]-[version].[architecture]` -> Structure of the package name.
+   - `[package-name]-[version].[architecture]` -> Structure of the package name.
+   - `yumdownloader firefox-91.2.0-4.el7.centos.x86_64` -> To download the old package.
+   - `yum install firefox-91.2.0-4.el7.centos.x86_64` -> Works only when upgrading.
    - `rpm -Uvh --oldpackage [downloaded_lower_version_package]` -> Revert to the old version.
 
 ## Create, configure and maintain containers
