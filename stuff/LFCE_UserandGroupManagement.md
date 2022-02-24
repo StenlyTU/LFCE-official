@@ -16,7 +16,7 @@
     ```bash
     $ sudo vim /etc/pam.d/sshd
     ```
-    Add this rule in both files.
+    Add this rule:.
     ```bash
     auth required pam_listfile.so onerr=succeed item=user sense=deny file=/etc/ssh/deniedusers
     ```
@@ -40,7 +40,26 @@
     $ sudo chmod 600 /etc/ssh/deniedusers
     ```
 
-    Task: configure PAM SSH so that if user tries to login 5 time, it gets refused!
+    - Do the oposite allow users to connect:
+        ```bash
+        auth required pam_listfile.so item=user sense=allow file=/etc/sshd/sshd.allow onerr=fail
+        ```
+
+- **Example -> Configure PAM SSH so that if user tries to login 5 time, it gets refused!**
+
+    - Something similar can be done using `/etc/security/limits.conf` configuring *maxlogin* for user.
+    - Add the following to */etc/pam.d/password-auth*:
+        ```bash
+        # This will lock every account after 5 attempt.
+        # Add following line at beginning of the ‘auth‘ section.
+        auth     required       pam_tally2.so deny=5 even_deny_root unlock_time=120
+
+        # add the following line to ‘account‘ section.
+        account     required      pam_tally2.so
+        ```
+        - `pam_tally2 -u sten` -> To check and reset the counter.
+
+        TBD
 
 - **How to Configuring Advanced PAM in Linux:**
     - To write more complex PAM rules, you can use valid control-flags in the following form:
@@ -76,6 +95,8 @@
         ```
 
     - **A lot of above info can be seen with:** `man pam.d`
+
+- More info on PAM: https://documentation.suse.com/zh-cn/sles/12-SP5/html/SLES-all/cha-pam.html
 
 [Check everything from LFCS essentials KB](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/UserandGroupManagement.md)
 

@@ -29,6 +29,7 @@
 - To downgarde the rpm package, use the below command syntax:
    - `yum --showduplicates list firefox` -> Show old versions.
    - `[package-name]-[version].[architecture]` -> Structure of the package name.
+   - `yum install yum-utils` -> To install yumdownloader.
    - `yumdownloader firefox-91.2.0-4.el7.centos.x86_64` -> To download the old package.
    - `yum install firefox-91.2.0-4.el7.centos.x86_64` -> Works only when upgrading.
    - `rpm -Uvh --oldpackage [downloaded_lower_version_package]` -> Revert to the old version.

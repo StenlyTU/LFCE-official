@@ -22,6 +22,9 @@
     - `yum install vnstat`
     - Change the default interface in `/etc/vnstat.conf`
     - `vnstat --create -i ens33` -> Create DB to store the data for ens33 interface.
+    - `systemctl status vnstat`
+    - `vnstat --dumpdb` -> Show what it is into the DB.
+    - `vnstat --live` -> Show the current load.
 
 ## Configure network traffic tunneling
 
@@ -78,6 +81,23 @@
     ```bash
     iptables -t nat -A POSTROUTING -o eth1 ! -d 192.168.12.0/24 -j MASQUERADE
     ```
+
+    - Enable or Disable IP Masquerading Using Firewalld:
+
+        - `sudo firewall-cmd --zone=public –query-masquerade` -> Check if masquerade is enabled.
+
+        - `sudo firewall-cmd --zone=public --add-masquerade` -> Enable Masquerading.
+
+    Tasks:
+    - disallow user charlie to get or maybe send at tcp/portxxx on computer xxxxx
+        - `sudo firewall-cmd --permanent --add-rich-rule="rule family='ipv4' source address='192.168.2.50' reject"` -> TBD!
+    - Route traffic from port xxx at internet interface to ip address x.x.x.x at port xx.
+        - To forward inbound network packets from one port to an alternative port or address, first enable IP address masquerading for a zone and forwarding: `firewall-cmd --zone=external --add-forward`
+        - Ensure that interfaces between which you want to enable intra-zone forwarding are into the same zone.
+        - `firewall-cmd --zone=external --add-forward-port=port=22:proto=tcp:toport=3753` -> Packets intended for port 22 are now forwarded to port 3753.
+        - `firewall-cmd --zone=external --add-forward-port=port=22:proto=tcp:toport=2055:toaddr=192.0.2.55` -> Packets intended for port 22 are now forwarded to port 2055 at the address given with the "toaddr".
+
+- More info for Firewalld: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/using-and-configuring-firewalld_configuring-and-managing-networking
 
 ## Dynamically route IP traffic
 
