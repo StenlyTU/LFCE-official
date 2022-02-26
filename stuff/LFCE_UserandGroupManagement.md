@@ -45,10 +45,10 @@
         auth required pam_listfile.so item=user sense=allow file=/etc/sshd/sshd.allow onerr=fail
         ```
 
-- **Example -> Configure PAM SSH so that if user tries to login 5 time, it gets refused!**
+- **Example -> Configure PAM SSH so that if user fails to login 5 time, it gets locked!**
 
     - Something similar can be done using `/etc/security/limits.conf` configuring *maxlogin* for user.
-    - Add the following to */etc/pam.d/password-auth*:
+    - Add the following to both **/etc/pam.d/password-auth** and **/etc/pam.d/system-auth** files(works even added in only of them):
         ```bash
         # This will lock every account after 5 attempt.
         # Add following line at beginning of the ‘auth‘ section.
@@ -57,9 +57,8 @@
         # add the following line to ‘account‘ section.
         account     required      pam_tally2.so
         ```
-        - `pam_tally2 -u sten` -> To check and reset the counter.
-
-        TBD
+        - `pam_tally2 -u sten` -> To check for failed login attempts.
+        - `pam_tally2 -r` -> Reset the counter.
 
 - **How to Configuring Advanced PAM in Linux:**
     - To write more complex PAM rules, you can use valid control-flags in the following form:

@@ -203,6 +203,11 @@
         # use guest option for not asking for permissions.
         ```
 
+    - When using "valid users" option you can do the following additional steps:
+        - `sudo pdbedit -L` -> Check if your account already exists among smbdclients.
+        - `sudo smbpasswd -a myaccount` -> If the account is not there add it.
+        - `sudo pdbedit -x -u myaccount ` -> If already exists, you have to delete first and add it again as previous command.
+
     - Exercise: Create filesystem create user xxxxx allow that user
 
 - If you have access to *Linked Learning* have a look at the following courses:

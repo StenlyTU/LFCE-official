@@ -22,9 +22,13 @@
     rpmdev-setuptree
     ```
     - `wget http://downloads.xiph.org/releases/icecast/icecast-2.3.3.tar.gz` -> Download source tar file for the package that you want to build and move it to **..rpmbuild/SOURCES**
-    - Go to **..rpmbuild/SPECS** and execute rpmdev-newspec spec_name.spec to create simple spec file.
+    - Go to **..rpmbuild/SPECS** and execute `rpmdev-newspec spec_name.spec` to create simple spec file.
     - Edit the spec file and fill all needed.
     - `rpmbuild -v -bb ./SPECS/icecast.spec` -> Build it
+
+- Examples:
+    - https://www.youtube.com/watch?v=364Plv6zuBU
+    - https://www.youtube.com/watch?v=sNDs6AoNmA8
 
 - To downgarde the rpm package, use the below command syntax:
    - `yum --showduplicates list firefox` -> Show old versions.

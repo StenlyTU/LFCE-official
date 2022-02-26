@@ -57,6 +57,7 @@
         ```
     - Check server side for logs in `/var/log/$HOSTNAME`
     - Make sure that rsyslog service is running.
+    - Above setup works fine.
 
 ## Configure a DHCP server
 
@@ -138,14 +139,22 @@
         mail_location = mbox: ̃/mail:INBOX=/var/spool/mail/%u
         ```
     - Restart the service: `systemctl restart dovecot`
-    - Test it: `mutt -f imap://osboxes@192.168.0.181 `
+    - Test it: `mutt -f imap://osboxes@192.168.0.181`
     - For more info check: `man /etc/dovecot/dovecot.conf`
 
 - Enable/Disable TLS/SSL for IMAP in Dovecot:
     - Edit `/etc/dovecot/conf.d/10-ssl.conf` and set ***ssl*** to the desired state: yes|no|required
+    - Generate certificates if missing: `bash /usr/share/doc/dovecot-2.2.36/mkcerts.sh`
+    - `systemctl restart dovecot; mutt -f imap://osboxes@192.168.0.181`
 
 - Sending email using SMTP Auth (SASL-Simple Authentication and Security Layer) - not sure if needed
 - Using both SASL and TLS in Postfix (SASL type = dovecot) - not sure if needed
+    - `cd /etc/pki/tls/certs; make postfix.pem`
+    - `postconf -e "smtpd_tls_auth_only = yes"`
+    - `postconf -e "smtpd_tls_security_level = may"`
+    - `postconf -e "smtpd_tls_cert_file = /etc/postfix/postfix.pem"`
+    - `postconf -e "smtpd_tls_key_file = /etc/postfix/postfix.pem"`
+    - `systemctl restart postfix`
 
 ## Implement and configure the HTTP proxy server
 

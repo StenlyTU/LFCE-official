@@ -125,6 +125,7 @@
 - TCP Wrappers:
     - The TCP Wrappers system is a host-based network firewall and ACL.
     - The configuration for tcpwrappers is handled by two files, ***/etc/hosts.allow*** and ***/etc/hosts.deny***. Both files have the same syntax:
+    - The /etc/hosts.allow file lets you choose which computers can access your system. In the file, you can specify simple rules in plain text to tell your computer how to handle connections.
         ```bash
         <DAEMON>:<CLIENT>
         #hosts.allow
