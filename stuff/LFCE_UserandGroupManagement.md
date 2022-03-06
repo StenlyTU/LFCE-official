@@ -11,7 +11,7 @@
 
 - Check PAM info in LFCS repo: [here](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/UserandGroupManagement.md#configure-pam)
 
-- **Example -> How to Restrict root Access to SSH Service Via PAM:**
+- **Example 1 -> How to Restrict root Access to SSH Service Via PAM:**
 
     ```bash
     $ sudo vim /etc/pam.d/sshd
@@ -45,10 +45,10 @@
         auth required pam_listfile.so item=user sense=allow file=/etc/sshd/sshd.allow onerr=fail
         ```
 
-- **Example -> Configure PAM SSH so that if user fails to login 5 time, it gets locked!**
+- **Example 2 -> Configure PAM SSH so that if user fails to login 5 time, it gets locked!**
 
     - Something similar can be done using `/etc/security/limits.conf` configuring *maxlogin* for user.
-    - Add the following to both **/etc/pam.d/password-auth** and **/etc/pam.d/system-auth** files(works even added in only of them):
+    - Add the following to both **/etc/pam.d/password-auth** and **/etc/pam.d/system-auth** files(works even added in only one of them):
         ```bash
         # This will lock every account after 5 attempt.
         # Add following line at beginning of the ‘auth‘ section.

@@ -20,6 +20,22 @@
 
 - Use the following command to do it: `df, du, top, free and ps`
 
+- Tasks:
+    - Configure *swappiness* to 20:
+        - ***Swappines***: Define how aggressive (sic) the kernel will swap memory pages. Higher values will increase aggressiveness, lower values decrease the amount of swap. A value of 0 instructs the kernel not to initiate swap until the amount of free and file-backed pages is less than the high water mark in a zone. More [info](https://www.howtogeek.com/449691/what-is-swapiness-on-linux-and-how-to-change-it/).
+        - `/proc/sys/vm/swappiness || sysctl -a | grep swappiness` -> To check swappiness value.
+        - Add to `/etc/sysctl.conf` *vm.swappiness=20* and make it persistent.
+        - Changing the Linux swappiness value has an instant effect; you don’t need to reboot.
+    - Set *hugepages* to 6 and *overcommit hugepages* to 1. Make it persistent.
+        - Add them to `/etc/sysctl.conf`, check with `sysctl -a | grep <huge>` what is the correct key-value.
+        - ***Hugepages Overcommit*** - Defines the maximum number of additional huge pages that can be created and used by the system through overcommitting memory. Writing any non-zero value indicates that the system obtains that number of huge pages from the kernel's normal page pool if the persistent huge page pool is exhausted.
+    - Configure sten Group to be able to create hugepages.
+        - Add it to `/etc/security/limits.conf`:
+            ```bash
+            @sten		  - 	memlock		unlimited
+            #             OR                (max-value=Hugepages Count * Hugepage size)
+            ```
+
 ## Update operating systems to provide required functionality and security
 
 ## Update the kernel and ensure the system is bootable

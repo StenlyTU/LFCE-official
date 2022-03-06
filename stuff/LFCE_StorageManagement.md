@@ -39,29 +39,32 @@
 
     Examples:
 
-    To create a striped volume, you must specify at least two stripes. This topology and stripe count requires a minimum of two physical volumes with available capacity:
+    - To create a striped volume of 10G, you must specify at least two stripes stripe size 10MB. This topology and stripe count requires a minimum of two physical volumes with available capacity:
 
-    ```bash
-    sudo lvcreate --type striped -i 2 -L 10G -n striped_vol LVMVolGroup
-    ```
+        ```bash
+        sudo lvcreate --type striped -i 2 -L 10G -I 10M -n striped_vol LVMVolGroup
+        ```
 
-    To create a mirrored volume, use the raid1 type. If you want more than two sets of data, use the -m option. This example uses -m 2 to create a total of three sets of data (LVM counts this as one original data set with two mirrors). You will need at least three physical volumes for this to succeed:
+    - To create a mirrored volume, use the raid1 type. If you want more than two sets of data, use the -m option. This example uses -m 2 to create a total of three sets of data (LVM counts this as one original data set with two mirrors). You will need at least three physical volumes for this to succeed:
 
-    ```bash
-    sudo lvcreate --type raid1 -m 2 -L 20G -n mirrored_vol LVMVolGroup
-    ```
+        ```bash
+        sudo lvcreate --type raid1 -m 2 -L 20G -n mirrored_vol LVMVolGroup
+        ```
 
-    To create a snapshot of a volume, you must provide the original logical volume to snapshot instead of the volume group. Snapshots do not take up much space initially, but grow in size as changes are made to the logical volume it is tracking:
+    - To create a snapshot of a volume, you must provide the original logical volume to snapshot instead of the volume group. Snapshots do not take up much space initially, but grow in size as changes are made to the logical volume it is tracking:
 
-    ```bash
-    sudo lvcreate -s -L 10G -n snap_test LVMVolGroup/test
-    ```
+        ```bash
+        sudo lvcreate -s -L 10G -n snap_test LVMVolGroup/test
+        ```
 
-    Note: To revert a logical volume to the point-in-time of a snapshot, use:
+        Note: To revert a logical volume to the point-in-time of a snapshot, use:
 
-    ```bash
-    sudo lvconvert --merge LVMVolGroup/snap_test
-    ```
+        ```bash
+        sudo lvconvert --merge LVMVolGroup/snap_test
+        ```
+
+    - Create VG using /dev/sda1 /dev/sda2 /dev/sda3 with extend size of 5MB.
+    - Extend LVM with 12MB, no fs created.
 
 ## Identify storage devices using block device attributes
 

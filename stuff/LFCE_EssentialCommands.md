@@ -32,6 +32,7 @@
     git log
     git show
     git diff master latest
+    git log -S "<String to search for>" -> Shows what commit changed that line.
     ```
 
     `git clone ssh://osboxes@192.168.0.108/tmp/test ./opala/` -> Clone repo from remote machine using ssh.
@@ -46,6 +47,11 @@
     `cat file | sort | uniq -d` -> Show only duplicate lines.
 
     `uniq -u` -> Shows only unique lines.
+
+    `awk -F: '$3 > 100'` -> Show all lines which have number greater than 100 into the 3th column.
+
+    `sort -t: -k 3 -n -r` -> Sort by the 3th column separated by ":" by numerical order in descending fashion.
+        - More on sort: https://www.educba.com/sort-command-in-unix/
 
     Check them into the [LFCS repo.](https://github.com/StenlyTU/LFCS-official/blob/main/stuff/EssentialCommands.md)
 
